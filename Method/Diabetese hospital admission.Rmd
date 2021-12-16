@@ -1,6 +1,6 @@
 ---
 title: "Diabetes hospital admission"
-author: "Neha"
+author: "52103889"
 date: "25/11/2021"
 output:
   pdf_document: default
@@ -129,20 +129,63 @@ Chunk output can be customised with arguments set within the curly bracket { } f
 
 R markdown also facilitates inline code by putting back ticks (') around part of the code line. In line code is usually for small command within the test of the report.
 
+For below code chunk all the library that is used in this exploratory data analysis has been loaded with message = "FALSE" which will prevent message in finished file.
+
   
 
 ```{r load_package,  message= FALSE}
 library(tidyverse)
 library(plotly)    # interactive visualisations
 library(eeptools)  # calculating age from DOB
-library(viridis)   # nice color scheme
+library(viridis)   # nice colour scheme
 library(here)
+library(ggplot2)   # great for combining plots
+
 ```
 
+# Data preparation
 
-. A comma separated values data can be read though read_csv function 
+A meta data is a data that provides information about one or more aspect of data. Mata data includes documentation of the data set contents, context, quality, structure and accessibility. It usually summarises the data and hence help in understanding and working with specific data easier. It makes data more traceable, findable and reusable.
 
 
+Good data quality starts with good metadata hence meta data forma an integral part of open and reproducible science. Making data and meta data available in open access repository along with the code used to do the data analysis will help in replicating the results effortlessly. This will also enhance robustness of code and trustworthiness of research results/outputs. 
+
+
+Within health care system where privacy of patient’s personal information takes priority, sharing actual data in open access repository can be concerning. A fake data can play a crucial role in this scenario. A fake dataset is a dataset that has the same format as the real dataset but contains made-up data.Fake data with research code can be shared in any open access repository and checking the robustness of the code can be requested from intended audience. 
+
+
+It’s not always faceable to share the data while working with huge dataset and wanting a second opinion or help with the code being used. Fake data like original big data along with code can be shared in some open platform/ repository and help can requested.
+
+
+Working with fake data and analysing it and using the same code to analyse a dataset that is kept in a very secure environment could make the process smother that working on secured data directly.
+
+It is quite easy to put together a fake data set, we just need to follow our data dictionary
+
+Similar to fake data, a tidy data is equally important for efficiency, reproducibility and collaboration. A tidy data is a way of organising your data, to enable easy manipulation and plotting in R. It has three simple rules
+
+
+1.	Each variable must have its own column.
+
+
+2.	Each observation must have its own row.
+
+
+3.	Each value must have its own cell
+
+An untidy data set can be converted into tidy data set by pivoting it. There is a popular saying in Data Science like this “Data Scientists spend up to 80% of the time on data cleaning and 20 percent of their time on actual data analysis”. 
+
+
+Having a tidy data with a standardised framework of how data should look like, you will have to spend less time on data cleaning and wrangling and more time on focusing analysis.
+Tidy data make data more reproducible and easily understood by others. Moreover, a tidy data is complemented with tools in r to work with. The dplyr package of R provides several functions like mutate (), filter (), group_by() and many more functions that help you complete the most common data manipulation.
+
+
+
+When data has been cleaned and tidied up the next important step is to read this data into R. Usually data is in table such as spreadsheet, database comma separated values. CSV in short which is basically simplified spreadsheet. readr package of tidyverse of  R provides a function read_csv () which will read the csv file into R environment just by passing the name of csv if the csv file is kept in same folder where your Rproj is stored. Here is the beauty of this function. The path of the file does not need to be hardcoded within the read_csv (), In fact it is advised not to pass the file path through the function. This will help in reproducibility when someone else will try to read the data with your code. 
+
+
+Another package which is useful in reading data in R keeping reproducibility in mind is **here** package. The here package allows you to set the top level of your project folder as “here” and to specify where things live relative to that location. Here package works from the project up and hence makes it easy to reference other sub folders in the directory. If here package is used, files outside of project will still work as it is supposed to work.
+
+In the below code chunk two fake data set "demographic" and "hospital_admission" has been read into R using "here" package.
 
 
 ```{r read-data , message = FALSE}
@@ -161,7 +204,9 @@ glimpse(Hospital_admission)
 
 ```
 
-checking missing values
+## checking missing values
+
+Once data set has been read in R, next important thing is to have a good look at the data set and look for missing values and typos. R provides some very useful functions like glimpse () which gives a glimpse of the data set. summary () and table () can be used to checking missing values, typos and outliers. 
 
 ```{r missing-value-demographic}
 
@@ -170,21 +215,21 @@ demographic$sex %>%table()   # any missing value in sex
 
 ```
 
+For example, summary function on hospital_admission data set clearly showing minimum value as 10. From the data dictionary we know the value column is for sugar reading in mg/dL and sugar reading as low as 10 mg/dL is unlikely. This can be interpreted as typos during data collection or an outlier
+
+
+Another example is table () on “result” column of hospital_admission data set clearly highlights that there is a missing value “*” in the “result “column.
+
+
 
 ```{r missing-values-hospital-admission}
 
 Hospital_admission$result %>%table()  # any missing value in results
-
-```
-
-
-```{r tpos-in-data}
-
 Hospital_admission %>% summary()  # any typos in hospital admission data set
 
 ```
 
-
+Both missing value and typo can be dropped out of the data set by first filtering it out from data using the filter () and dropping it out from data set by drop_na () 
 
 
 ```{r remove-missing-values}
@@ -203,6 +248,18 @@ tidy_hospital_admission %>% summary()
 ```
 
 
+Now both the data set “demographic” and hospital admission” is now clean and tidy data set. We need a dataset that has information from both the data set.  R provides join function which can easily join two data set having one column information in common in each dataset. There are different types of joins available within R  as follows
+
+inner join - Returns only the rows in which the left table have matching data in the right table.
+
+outer join - Returns all rows from both tables
+
+left join - Return all rows from the left table, and any rows with matching data from the right table
+
+right join Return all rows from the right table, and any rows with matching data from the left table.
+
+For our data set we want all the data from hospital_admission data set and corresponding /matching data from demographic dataset. Left join will be appropriate to join the data set A new data frme has been created called admission_data which contains all the data from tidy_hospital_admission and corresponding matching data from demographic dataset. Column name “ value “ has been renamed as “ sugar_reading” for better understanding of the data using rename ().
+
 
 joining the two data set
 
@@ -218,6 +275,8 @@ glimpse(admission_data)
 ```
 
 
+Once the data set is joint, it is good idea to save the joint dataset somewhere safe, so that it can be referred again if needed.  Write_csv() comes in handy which writes the clean joint data set in csv format. Our joint data set has been saved with the name “sugar reading” in csv format.
+
 save the clean data 
 
 ```{r  save-clean-data}
@@ -226,7 +285,14 @@ write_csv(admission_data, "Sugar reading.csv")
 
 ```
 
+# Data visualisation
 
+R provides a plotting package ggplot which has helpful commands to create complex visually informative plots from data in the dataset. 
+
+
+## histogram
+A histogram has been plotted by using the data from admission_data dataset. Passing “sugar_reading “ through  x axis and using geom_histogram () and using  Facet_wrap () for creating two histogram one for each sex. 
+Histogram plotted shows distribution of sugar reading between males and females. Largest concentration of sugar reading in male and female both is between 220- 230 mg/dL The data is not normally distributed for both male and female sugar readings.
 
 
 ```{r histogram}
@@ -243,7 +309,12 @@ admission_data %>%
 
 
 
-box plot of male and female data set
+## box plot of dataset
+
+To see the median value of sugar reading between males and females a box plot has been plotted by passing sex through x axis and sugar reading in y axis and using the geom_boxplot (). Another function called geom_jitter() has been used to visualise individual sugar reading for both sex.
+
+
+It is evident from the box plot that the median value of sugar reading for both male and female is same which around 175 mg/dL. Though the data is scattered for both males and females. The spread of interquartile range for sugar reading for both male and female is almost equal but the minimum and maximum value of sugar reading for female is little bit higher than male sugar readings
 
 ```{r boxplot}
 
@@ -259,6 +330,9 @@ admission_data %>%
 
 ```
 
+
+## calculating age from dob
+
 ```{r calculating-age}
 #admission_data$dob = as.Date(admission_data$dob)
 admission_data$age = round(age_calc(admission_data$dob, enddate = Sys.Date(), units = 'years' ))
@@ -266,38 +340,12 @@ glimpse(admission_data)
 
 ```
 
+## Scatterplot
 
 
-```{r - scatterplot}
+To visualise relationship between age and sugar reading a scatter plot has been plotted using geom_point () and passing age in x axis and sugar reading in Y axis and drawing a line of best fit individually for male and female in different colours. 
 
 
-plot(admission_data$age, admission_data$Sugar_reading,
-     pch = 19)
- lines(lowess(admission_data$age, admission_data$Sugar_reading ), col = "blue")
-
-
-
-```
-
-
-
-```{r male-female-relation}
-#Scatter plot
-
-plot(admission_data$age, admission_data$Sugar_reading,
-     pch = 19,
-     col = factor(admission_data$sex))
-
-#Legends
-legend("topleft",
-       legend = levels(factor(admission_data$sex)),
-       pch = 19,
-       col = factor(levels(factor(admission_data$sex))))
-
-
-lines(lowess(admission_data$age, admission_data$Sugar_reading ), col = "blue")
-
-```
 
 ```{r}
 
@@ -313,7 +361,7 @@ admission_data %>%
 
 
 
-dividing the data set into male and female data set
+## line of best fit for males and females
 
 
 ```{r change-colour}
@@ -328,7 +376,7 @@ admission_data %>%
 
 ```
 
-
+A person is called diabetic if the sugar reading exceeds the reading 200 mg/dL. A new data set has been created with diabetic males and females called “diabetes”. A similar scatter plot has been plotted by using geom_point () and passing age in x axis and sugar reading in y axis and drawing a line of best fit individually for males and females in different colours.
 
 
 ```{r diabetes-data}
@@ -341,7 +389,9 @@ glimpse(diabetes)
 ```
 
 
-```{r}
+
+
+```{r diabetic-scatterplot}
 diabetes %>%
   ggplot(aes(x=age, 
              y=Sugar_reading,
@@ -349,8 +399,12 @@ diabetes %>%
   geom_point(alpha=2, size=2)+                   
   geom_smooth(se = FALSE)
 ```
+## Applying interactive tooltip
 
-```{r new-plot}
+R provides a fantastic graphical user interface called tooltip. When hovered over, it presents a brief informative message about that point. Tooltip has been applied by passing x axis and y axis values through tooltip in the ggplotly().
+
+
+```{r tooltip}
 
 p <- diabetes %>%
   ggplot(aes(x=age, 
@@ -363,7 +417,13 @@ ggplotly(p,tooltip = c("x","y"))
 
 ```
 
-```{r color-scheme}
+## using viridis colour scheme
+
+Colours use in scatter plot for males and females are red and green. Most common colour blindness is known as “red/green colour blindness”. Colouring the plot with red and green might make this useless for the people with colour blindness. Viridis colour scheme has been used to colour the scatter plot which provide a wide perceptual range and rely more on blue - yellow contrast.
+
+
+
+```{r different-colour}
 p <- diabetes %>%
   ggplot(aes(x=age, 
              y=Sugar_reading,
@@ -376,4 +436,21 @@ ggplotly(p,tooltip = c("x","y"))
 
 ```
 
-this is the end of report
+# Summary and reflection
+
+Reproducibility means research data and code are made open and available to all levels of society so that others can reach the same results as are claimed in the scientific output. R is one of best choice when it comes to reproducibility as it free and open-source software along with some other like python. One of the most powerful features of R is its ability to deal and visualize tabular data with just few functions and statistical function to do statistical analysis.
+
+Personally, the features that was very helpful was the combination of code chunk and text where the documentation of code can be explained clearly and provision of adding comments next to the code which is very useful in explaining what that particular line of code is doing in the code chunk.
+
+This report has not been created in one single stretch, hence every time the work was in progress a small snippet of information in form of text was added so that whenever the coding resumes, I will have clear picture where did I leave with what conditions and what was planned next in coding. This feature is not just helpful for reproducibility for other, It is also useful in keeping track of what has been done so far.
+
+While creating fake data set with csv file, fake chi numbers were created which are comparatively large number. In csv file these large numbers are converted into scientific or exponential numbers in the cell. This is how large numbers are displayed in csv and reflection of this can be seen in this report as well.
+
+### References 
+
+[1] https://en.wikipedia.org/wiki/Open_science  
+
+[2] https://www.fosteropenscience.eu/content/what-are-benefits-open-science
+
+[3] https://cran.r-project.org/web/views/ReproducibleResearch.html
+
