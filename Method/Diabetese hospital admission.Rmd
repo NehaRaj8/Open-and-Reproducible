@@ -14,49 +14,50 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction 
 
-*Open science* is the movement to make scientific research (including publications, data, physical samples, and software) and its dissemination accessible to all levels of society, amateur or professional Open science is transparent and accessible knowledge that is shared and developed through collaborative networks. It encompasses practices such as publishing open research, campaigning for open access, encouraging scientists to practice open-notebook science, and generally making it easier to publish and communicate scientific knowledge. [1] 
+*Open science* Open science is the movement to make scientific research including data, physical samples, software, publications and its dissemination accessible to all levels of society. It promotes transparency, robustness and trust of research process and its conclusion. It also provides collaborative platform for sharing of scientific knowledge and ease of access of research materials for both amateur and professionals.  
 
 
-## Open science can have following benefits if applied to scientific research [2] 
+## Open science should be encouraged as it provides following benefits to the researchers and to the society as a whole [1] 
 
-*Efficiency of the research* – Open science can dramatically improve effectiveness and productivity of the scientific research by reducing the duplication and cost of creating, transferring, and reusing data. It allows reusability of data for more research work and hence create new opportunity for global participation in the research process.
-
-
-*Quality and integrity of the research* – Openness of research assets like data, code and results provides an opportunity for evolution and scrutiny by scientific community which allows accurate replication and validation of the research result. Openness can also identify malpractice of science early on and will contribute to maintain science’s self-correction principle.
+**Efficiency of the research** – Open science can dramatically improve effectiveness and productivity of the scientific research by reducing the duplication and cost of creating, transferring, and reusing data. It allows reusability of data for more research work and hence create new opportunity for global participation in the research process.
 
 
-*Economic benefits* – Open science will foster innovation and scientific systems more broadly with increased awareness and conscious choices and hence benefit advanced economies and developing countries.
+**Quality and integrity of the research** – Openness of research assets like data, code and results provides an opportunity for evolution and scrutiny by scientific community which allows accurate replication and validation of the research result. Openness can also identify malpractice of science early on and will contribute to maintain science’s self-correction principle.
+
+
+**Economic benefits** – Open science will foster innovation and scientific systems more broadly with increased awareness and conscious choices and hence benefit advanced economies and developing countries.
 Innovation and knowledge transfer – Open science offers swift path from research to innovation to produce new products and services.
 
 
-*Public disclosure and agreement* – Open science involves public of the society which promotes awareness and trust of research results hance results in more public funded research.
+**Public disclosure and agreement** – Open science involves public of the society which promotes awareness and trust of research results hance results in more public funded research.
 
 
-*Global benefits* – Open science takes account of global issue like climate change or the ageing population and promotes collaborate effort and faster knowledge transfer
+**Global benefits** – Open science takes account of global issue like climate change or the ageing population and promotes collaborate effort and faster knowledge transfer
 
 
 In simple terms open science can amplify the power of science by adopting reproducibility factor of scientific research like keeping research data, code, and environment information open and accessible to all levels of society. 
 
 
 R is open access easy to learn programming language. Along with its statistical utilities and libraries R also makes machine learning algorithms easy to learn. 
-Pipeline toolkit in R provides concrete evidence that the results are re-creatable from the starting material, and data analysis project does not need to rerun from scratch. [3]
+
+Pipeline toolkit in R provides concrete evidence that the results are re-creatable from the starting material, and data analysis project does not need to rerun from scratch. [2]
 
 
-R has various tools that ensures specific package version can be required for analysis and hence package reproducibility can be achieved. [3]
+R has various tools that ensures specific package version can be required for analysis and hence package reproducibility can be achieved. [2]
 
 
-Successfully completing a data analysis project often requires much more than statistics and visualizations. Efficiently managing the code, data, and results as the project matures helps reduce stress and errors. The  "workflow" packages assist the R programmer by managing project infrastructure and/or facilitating a reproducible workflow. [3]
+Successfully completing a data analysis project often requires much more than statistics and visualizations. Efficiently managing the code, data, and results as the project matures helps reduce stress and errors. The  "workflow" packages assist the R programmer by managing project infrastructure and/or facilitating a reproducible workflow. [2]
 
 
-Let’s do an exploratory data analysis in R markdown on fake data set as an example. We have two data sets one has sugar readings of 100 people, and another has age and gender information of those 100 people. We are interested to see if there is a relation between age and their sugar readings. How is this relationship for each gender?
+It can be demonstrated with a simplistic exploratory data analysis in R markdown based on fake data set as an example. We have considered two data sets; one has sugar readings of 100 people, and another has age and gender information of those 100 people. We are interested to see if there is a relation between age and their sugar readings This will also demonstrate the relationship based on each gender
 
 
 # R markdown
 
-The objective of reproducibility in research can be achieved by combining specific instruction to experimental data and data analysis in one place for better understanding, verification, and recreation. This can be achieved by using R markdown which allows use of document that is combination of content and data analysis code. The Sweave function and the knitr package can be used to blend the subject matter and R code in a single document that defines content and the analysis. [3]
+The objective of reproducibility in research can be achieved by combining specific instruction to experimental data and data analysis in one place for better understanding, verification, and recreation. This can be achieved by using R markdown which allows use of document that is combination of content and data analysis code. The Sweave function and the knitr package can be used to blend the subject matter and R code in a single document that defines content and the analysis. [2]
 
 
-R markdown is a file format within R which allows creation of reproducible and dynamic documents It consist of three types of content YAML header,text and code chunk .R markdown can produce output/report in word, HTML, pdf, dashboards and slideshows etc which can be easily shared.The output is defined in the YAML header.
+R markdown is a file format within R which allows creation of reproducible and dynamic documents It consist of three types of content YAML header,text and code chunk. Combination of these trio make R favorite data analysis programming language for health data scientists. R markdown can produce output/report in word, HTML, pdf, dashboards and slideshows etc which can be easily shared.The output is defined in the YAML header.
 
 
 YAML header is a short text which gives information of title, author, date and output demarcated by three dashes (—) on either end of the markdown file 
@@ -72,8 +73,6 @@ R markdown provides syntax to create different levels of headers. For example, t
  Plain text can be written in *italics* by using “*” or “_” and keeping the text in between them and in **bold** by using “**” or “_ _” before and after the text. There are syntax for writing text in different styles for example  
 
 
-**bold** by using test between two asterisk symbol "**"
-
 superscripts ^2^ by using “^” 
 
 
@@ -81,7 +80,7 @@ superscripts ^2^ by using “^”
 
 
 
-Unordered lists ca be written as follows by using “*” in front of the text and “+” in front of sub-unordered lists
+Unordered lists ca be written as follows by using “*” in front of the text and “+” in front and indenting the sub-unordered lists 
 
 
 
@@ -90,14 +89,18 @@ Unordered lists ca be written as follows by using “*” in front of the text a
     + sub-item 1
     + sub-item 2
 
-Ordered list can be written as following by writing order like “1.” and sub items using “+” in front of the text
+
+Ordered list can be written as following by writing order like “1.” and sub items using “1.” in front and indenting the sub-ordered lists 
+
 
 1. ordered list 
 2. item 2 
       1. sub-item 
       2. sub-item 
+      
+      
 
-Tables can also be created by using "-" to underline the table header and then use  "|" to separate table content on each side.
+Tables can also be created by using "-" more that three to underline the table header and then use  "|" to separate table content on each side.
 
  Table Header | Second Header
 ------------- | ------------- 
@@ -105,14 +108,16 @@ Tables can also be created by using "-" to underline the table header and then u
        Cell 3 | Cell 4
 
 
+
 To create a blockquote, add a “> “in front of a paragraph. For example 
 
    >  This is blockquote
 
-R markdown facilitate code chunk which is simply a display of code for illustration and its output. For example, below code chunk is for loading the different packages used in this report.The code chunk is used for detailed snippets of code and it is achieved by using three back ticks in start of the code and finish with 3 back ticks (```) 
+
+R markdown facilitate code chunk which is simply a display of code for illustration and its output in the final document . The code chunk in R markdown is used for detailed snippets of code and it is achieved by using three back ticks in start of the code and finish with 3 back ticks (```) 
 
 
-Chunk output can be customised with arguments set within the curly bracket { } for example 
+Code chunk output can be customised with arguments set within the curly bracket { } for example 
 
 
 **include = FALSE** prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.
@@ -129,7 +134,8 @@ Chunk output can be customised with arguments set within the curly bracket { } f
 
 R markdown also facilitates inline code by putting back ticks (') around part of the code line. In line code is usually for small command within the test of the report.
 
-For below code chunk all the library that is used in this exploratory data analysis has been loaded with message = "FALSE" which will prevent message in finished file.
+
+Look at the below code chunk, all the libraries that is used in this exploratory data analysis has been loaded with message = "FALSE" which will prevent message in finished file. R facilitate writing very concise text beside each line of code if it is needed to explain what that line of code is performing by using "#"
 
   
 
@@ -145,19 +151,19 @@ library(ggplot2)   # great for combining plots
 
 # Data preparation
 
-A meta data is a data that provides information about one or more aspect of data. Mata data includes documentation of the data set contents, context, quality, structure and accessibility. It usually summarises the data and hence help in understanding and working with specific data easier. It makes data more traceable, findable and reusable.
+A meta data is a data that provides information about one or more aspect of data. Meta data includes documentation of the data set contents, context, quality, structure and accessibility. It usually summaries the data and hence help in understanding and working with specific data easier. It makes data more traceable, findable and reusable.
 
 
-Good data quality starts with good metadata hence meta data forma an integral part of open and reproducible science. Making data and meta data available in open access repository along with the code used to do the data analysis will help in replicating the results effortlessly. This will also enhance robustness of code and trustworthiness of research results/outputs. 
+Good data quality starts with good metadata hence meta data forms an integral part of open and reproducible science. Making data and meta data available in open access repository along with the code that is used to do the data analysis will help in replicating the results effortlessly. This will also enhance robustness of code and trustworthiness of research results/outputs. 
 
 
-Within health care system where privacy of patient’s personal information takes priority, sharing actual data in open access repository can be concerning. A fake data can play a crucial role in this scenario. A fake dataset is a dataset that has the same format as the real dataset but contains made-up data.Fake data with research code can be shared in any open access repository and checking the robustness of the code can be requested from intended audience. 
+Within health care system where privacy of patient’s personal information takes priority, sharing actual data in open access repository can not be possible all the times. A fake data can play a crucial role in this scenario. A fake data set is a data set that has the same format as the real data set but contains made-up data. Fake data with research code can be shared in any open access repository and checking the robustness of the code can be requested from intended audience. 
 
 
-It’s not always faceable to share the data while working with huge dataset and wanting a second opinion or help with the code being used. Fake data like original big data along with code can be shared in some open platform/ repository and help can requested.
+It’s not always feasible to share the data while working with huge data set and may require a second opinion or help with the code being used. Fake data similar to original big data along with code can be shared in some open platform/ repository and help can requested.
 
 
-Working with fake data and analysing it and using the same code to analyse a dataset that is kept in a very secure environment could make the process smother that working on secured data directly.
+Working with fake data and analysing it and using the same code to analyse a data set that is kept in a very secure environment could make the process smother than working on secured data directly.
 
 It is quite easy to put together a fake data set, we just need to follow our data dictionary
 
@@ -172,15 +178,16 @@ Similar to fake data, a tidy data is equally important for efficiency, reproduci
 
 3.	Each value must have its own cell
 
-An untidy data set can be converted into tidy data set by pivoting it. There is a popular saying in Data Science like this “Data Scientists spend up to 80% of the time on data cleaning and 20 percent of their time on actual data analysis”. 
+
+An untidy data set can be converted into tidy data set by pivoting it. There is a popular saying in Data Science like this “Data Scientists spend up to 80% of the time on data cleaning and 20% of their time on actual data analysis”. 
 
 
-Having a tidy data with a standardised framework of how data should look like, you will have to spend less time on data cleaning and wrangling and more time on focusing analysis.
+Having a tidy data with a standardised framework of how data should look like, we will have to spend less time on data cleaning and wrangling and more time on focusing analysis.
 Tidy data make data more reproducible and easily understood by others. Moreover, a tidy data is complemented with tools in r to work with. The dplyr package of R provides several functions like mutate (), filter (), group_by() and many more functions that help you complete the most common data manipulation.
 
 
 
-When data has been cleaned and tidied up the next important step is to read this data into R. Usually data is in table such as spreadsheet, database comma separated values. CSV in short which is basically simplified spreadsheet. readr package of tidyverse of  R provides a function read_csv () which will read the csv file into R environment just by passing the name of csv if the csv file is kept in same folder where your Rproj is stored. Here is the beauty of this function. The path of the file does not need to be hardcoded within the read_csv (), In fact it is advised not to pass the file path through the function. This will help in reproducibility when someone else will try to read the data with your code. 
+When data has been cleaned and tidied up, the next important step is to read this data into R. Usually data is in table such as spreadsheet, database comma separated values, CSV in short, which is basically simplified spreadsheet. readr package of tidyverse of R provides a function read_csv () which will read the csv file kept in the working directory into R environment just by passing the name of csv. read_csv () is one of the quickest and efficient way to import a tibble of the data set. Here is the beauty of this function. The path of the file does not need to be hard coded within the read_csv (), In fact it is advised not to pass the file path through the function. This will help in reproducibility when someone else will try to read the data with your code. 
 
 
 Another package which is useful in reading data in R keeping reproducibility in mind is **here** package. The here package allows you to set the top level of your project folder as “here” and to specify where things live relative to that location. Here package works from the project up and hence makes it easy to reference other sub folders in the directory. If here package is used, files outside of project will still work as it is supposed to work.
@@ -195,10 +202,10 @@ demographic <- read_csv(here("inputs/demographics.csv"))
 Hospital_admission <- read_csv(here("inputs/Diabetes related hospital admission.csv"))
 
 ```
+The dplyr package provides a function called glimpse (). This function displays a vertical preview of dataset which allows easy preview of data type and sample data. For example below glimpse() is giving a snapshot of data type of fake dataset that was loaded previously.
 
 
-
-```{r missing-values}
+```{r dataset}
 glimpse(demographic)
 glimpse(Hospital_admission)
 
@@ -206,7 +213,7 @@ glimpse(Hospital_admission)
 
 ## checking missing values
 
-Once data set has been read in R, next important thing is to have a good look at the data set and look for missing values and typos. R provides some very useful functions like glimpse () which gives a glimpse of the data set. summary () and table () can be used to checking missing values, typos and outliers. 
+Once data set has been read in R, next important thing is to have a good look at the data set, hunt for missing values and typos. R provides some very useful functions like summary () and table () whaich can be used to check missing values, typos and outliers. 
 
 ```{r missing-value-demographic}
 
@@ -215,7 +222,7 @@ demographic$sex %>%table()   # any missing value in sex
 
 ```
 
-For example, summary function on hospital_admission data set clearly showing minimum value as 10. From the data dictionary we know the value column is for sugar reading in mg/dL and sugar reading as low as 10 mg/dL is unlikely. This can be interpreted as typos during data collection or an outlier
+For example, summary function on hospital_admission data set is clearly showing minimum value as 10. From the data dictionary we know the value column is for sugar reading in mg/dL and sugar reading as low as 10 mg/dL is unlikely. This can be interpreted as typos during data collection or an outlier
 
 
 Another example is table () on “result” column of hospital_admission data set clearly highlights that there is a missing value “*” in the “result “column.
@@ -247,21 +254,23 @@ tidy_hospital_admission <- Hospital_admission %>%
 tidy_hospital_admission %>% summary()
 ```
 
+## joining the two data set
 
-Now both the data set “demographic” and hospital admission” is now clean and tidy data set. We need a dataset that has information from both the data set.  R provides join function which can easily join two data set having one column information in common in each dataset. There are different types of joins available within R  as follows
+Now both the data set “demographic” and hospital admission” is now clean and tidy data set. We need a dataset that has information from both these dataset.  R provides join function which can easily join two data set having one column information in common in each dataset. There are different types of joins available within R which are as follows
 
-inner join - Returns only the rows in which the left table have matching data in the right table.
+**inner join** - Returns only the rows in which the left table have matching data in the right table.
 
-outer join - Returns all rows from both tables
+**outer join** - Returns all rows from both tables
 
-left join - Return all rows from the left table, and any rows with matching data from the right table
+**left join** - Returns all rows from the left table, and any rows with matching data from the right table
 
-right join Return all rows from the right table, and any rows with matching data from the left table.
-
-For our data set we want all the data from hospital_admission data set and corresponding /matching data from demographic dataset. Left join will be appropriate to join the data set A new data frme has been created called admission_data which contains all the data from tidy_hospital_admission and corresponding matching data from demographic dataset. Column name “ value “ has been renamed as “ sugar_reading” for better understanding of the data using rename ().
+**right join** - Returns all rows from the right table, and any rows with matching data from the left table.
 
 
-joining the two data set
+For our data set we want all the data from hospital_admission data set and corresponding /matching data from demographic dataset. Left join will be appropriate to join the two fake data set A new dataset has been created called admission_data, which contains all the data from tidy_hospital_admission and corresponding matching data from demographic dataset. Column name “ value “ has been renamed as “ sugar_reading” for better understanding of the data using rename ().
+
+
+
 
 ```{r join-two-dataset}
 
@@ -274,10 +283,11 @@ glimpse(admission_data)
 
 ```
 
+## save the clean data
 
-Once the data set is joint, it is good idea to save the joint dataset somewhere safe, so that it can be referred again if needed.  Write_csv() comes in handy which writes the clean joint data set in csv format. Our joint data set has been saved with the name “sugar reading” in csv format.
+Once the data set is joint, it is good idea to save the joint dataset somewhere safe, so that it can be referred in future, if needed.  Write_csv() comes in handy which writes the clean, joint dataset in csv format. Our joint data set has been saved with the name “sugar reading” in csv format.
 
-save the clean data 
+ 
 
 ```{r  save-clean-data}
 
@@ -291,8 +301,9 @@ R provides a plotting package ggplot which has helpful commands to create comple
 
 
 ## histogram
-A histogram has been plotted by using the data from admission_data dataset. Passing “sugar_reading “ through  x axis and using geom_histogram () and using  Facet_wrap () for creating two histogram one for each sex. 
-Histogram plotted shows distribution of sugar reading between males and females. Largest concentration of sugar reading in male and female both is between 220- 230 mg/dL The data is not normally distributed for both male and female sugar readings.
+
+A histogram has been plotted by using the data from admission_data dataset. Passing “sugar_reading“ through  x axis and using geom_histogram () and using  Facet_wrap () for creating two histogram one for each sex. 
+Plotted histogram shows distribution of sugar reading between males and females. Largest concentration of sugar reading in male and female both is between 220- 230 mg/dL .Also data is not normally distributed for both male and female sugar readings.
 
 
 ```{r histogram}
@@ -314,7 +325,7 @@ admission_data %>%
 To see the median value of sugar reading between males and females a box plot has been plotted by passing sex through x axis and sugar reading in y axis and using the geom_boxplot (). Another function called geom_jitter() has been used to visualise individual sugar reading for both sex.
 
 
-It is evident from the box plot that the median value of sugar reading for both male and female is same which around 175 mg/dL. Though the data is scattered for both males and females. The spread of interquartile range for sugar reading for both male and female is almost equal but the minimum and maximum value of sugar reading for female is little bit higher than male sugar readings
+It is evident from the box plot that the median value of sugar reading for both male and female is same which around 175 mg/dL. The data is scattered for both males and females. The spread of interquartile range for sugar reading for both male and female is almost equal but the minimum and maximum value of sugar reading for female is little bit higher than male sugar readings
 
 ```{r boxplot}
 
@@ -332,6 +343,8 @@ admission_data %>%
 
 
 ## calculating age from dob
+
+A new variable has been calculated called "age" from the column "dob" 
 
 ```{r calculating-age}
 #admission_data$dob = as.Date(admission_data$dob)
@@ -376,7 +389,7 @@ admission_data %>%
 
 ```
 
-A person is called diabetic if the sugar reading exceeds the reading 200 mg/dL. A new data set has been created with diabetic males and females called “diabetes”. A similar scatter plot has been plotted by using geom_point () and passing age in x axis and sugar reading in y axis and drawing a line of best fit individually for males and females in different colours.
+A person is called diabetic if the sugar reading exceeds the reading 200 mg/dL.The results column says positive if the sugar reading is more than 200 mg/dL and negative otherwise. A new data set has been created with diabetic males and females called “diabetes”. A similar scatter plot has been plotted by using geom_point () and passing age in x axis and sugar reading in y axis and drawing a line of best fit individually for males and females in different colours.
 
 
 ```{r diabetes-data}
@@ -441,7 +454,7 @@ ggplotly(p,tooltip = c("x","y"))
 ```
 # Summary and reflection
 
-Reproducibility means research data and code are made open and available to all levels of society so that others can reach the same results as are claimed in the scientific output. R is one of best choice when it comes to reproducibility as it free and open-source software along with some other like python. One of the most powerful features of R is its ability to deal and visualize tabular data with just few functions and statistical function to do statistical analysis.
+Reproducibility means research data and code are made open and available to all levels of society so that others can reach the same results as are claimed in the scientific output. R is one of best choice when it comes to reproducibility as it free and open-source software along with some other like python. R has scope of writing code and its documentation all in one place with desired format of its output like pdf, word, HTML etc. One of the most powerful features of R is its ability to deal and visualize tabular data and statistical function to do statistical analysis.
 
 Personally, the features that was very helpful was the combination of code chunk and text where the documentation of code can be explained clearly and provision of adding comments next to the code which is very useful in explaining what that particular line of code is doing in the code chunk.
 
@@ -449,12 +462,12 @@ This report has not been created in one single stretch, hence every time the wor
 
 While creating fake data set with csv file, fake chi numbers were created which are comparatively large number. In csv file these large numbers are converted into scientific or exponential numbers in the cell. This is how large numbers are displayed in csv and reflection of this can be seen in this report as well.
 
+knitting the R markdown file can be tricky sometimes. Absence of some additional package can lead to missing of plot/graph in final document. while knitting this document two graph were missing in the final pdf document which was later resolved by istalling a package called "webshot" that helped in printing the missing graph in final pdf.
+
 
 ### References 
 
-[1] https://en.wikipedia.org/wiki/Open_science  
+[1] https://www.fosteropenscience.eu/content/what-are-benefits-open-science
 
-[2] https://www.fosteropenscience.eu/content/what-are-benefits-open-science
-
-[3] https://cran.r-project.org/web/views/ReproducibleResearch.html
+[2] https://cran.r-project.org/web/views/ReproducibleResearch.html
 
