@@ -12,6 +12,47 @@ always_allow_html: true
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Introduction 
+
+Open science is the movement to make scientific research (including publications, data, physical samples, and software) and its dissemination accessible to all levels of society, amateur or professional Open science is transparent and accessible knowledge that is shared and developed through collaborative networks. It encompasses practices such as publishing open research, campaigning for open access, encouraging scientists to practice open-notebook science, and generally making it easier to publish and communicate scientific knowledge. [1] 
+
+
+Open science can have following benefits if applied to scientific research [2] 
+
+Efficiency of the research – Open science can dramatically improve effectiveness and productivity of the scientific research by reducing the duplication and cost of creating, transferring, and reusing data. It allows reusability of data for more research work and hence create new opportunity for global participation in the research process.
+
+
+Quality and integrity of the research – Openness of research assets like data, code and results provides an opportunity for evolution and scrutiny by scientific community which allows accurate replication and validation of the research result. Openness can also identify malpractice of science early on and will contribute to maintain science’s self-correction principle.
+
+
+Economic benefits – Open science will foster innovation and scientific systems more broadly with increased awareness and conscious choices and hence benefit advanced economies and developing countries.
+Innovation and knowledge transfer – Open science offers swift path from research to innovation to produce new products and services.
+
+
+Public disclosure and agreement – Open science involves public of the society which promotes awareness and trust of research results hance results in more public funded research.
+
+
+Global benefits – Open science takes account of global issue like climate change or the ageing population and promotes collaborate effort and faster knowledge transfer
+
+
+In simple terms open science can amplify the power of science by adopting reproducibility factor of scientific research like keeping research data, code, and environment information open and accessible to all levels of society. 
+
+
+R is open access easy to learn programming language. Along with its statistical utilities and libraries R also makes machine learning algorithms easy to learn. 
+Pipeline toolkit in R provides concrete evidence that the results are re-creatable from the starting material, and data analysis project does not need to rerun from scratch. [3]
+
+
+R has various tools that ensures specific package version can be required for analysis and hence package reproducibility can be achieved. [3]
+
+
+Successfully completing a data analysis project often requires much more than statistics and visualizations. Efficiently managing the code, data, and results as the project matures helps reduce stress and errors. The  "workflow" packages assist the R programmer by managing project infrastructure and/or facilitating a reproducible workflow. [3]
+
+
+Let’s do an exploratory data analysis in R markdown on fake data set as an example. We have two data sets one has sugar readings of 100 people, and another has age and gender information of those 100 people. We are interested to see if there is a relation between age and their sugar readings. How is this relationship for each gender?
+
+
+# R markdown
+
 The objective of reproducibility in research can be achieved by combining specific instruction to experimental data and data analysis in one place for better understanding, verification, and recreation. This can be achieved by using R markdown which allows use of document that is combination of content and data analysis code. The Sweave function and the knitr package can be used to blend the subject matter and R code in a single document that defines content and the analysis. [3]
 
 
@@ -99,8 +140,8 @@ library(here)
 ```{r read-data , message = FALSE}
 
 
-demographic <- read_csv(here("data/demographics.csv"))
-Hospital_admission <- read_csv(here("data/Diabetes related hospital admission.csv"))
+demographic <- read_csv(here("inputs/demographics.csv"))
+Hospital_admission <- read_csv(here("inputs/Diabetes related hospital admission.csv"))
 
 ```
 
