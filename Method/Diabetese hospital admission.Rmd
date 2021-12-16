@@ -49,7 +49,7 @@ R has various tools that ensures specific package version can be required for an
 Successfully completing a data analysis project often requires much more than statistics and visualizations. Efficiently managing the code, data, and results as the project matures helps reduce stress and errors. The  "workflow" packages assist the R programmer by managing project infrastructure and/or facilitating a reproducible workflow. [2]
 
 
-It can be demonstrated with a simplistic exploratory data analysis in R markdown based on fake data set as an example. We have considered two data sets; one has sugar readings of 100 people, and another has age and gender information of those 100 people. We are interested to see if there is a relation between age and their sugar readings This will also demonstrate the relationship based on each gender
+It can be demonstrated with a simplistic exploratory data analysis in R markdown based on fake data set as an example. We have considered two data sets; one has sugar readings of 100 people, and another has age and gender information of those 100 people. We are interested to see if there is a relation between age and their sugar readings for both male and female.
 
 
 # R markdown
@@ -144,7 +144,7 @@ library(tidyverse)
 library(plotly)    # interactive visualisations
 library(eeptools)  # calculating age from DOB
 library(viridis)   # nice colour scheme
-library(here)
+library(here)      # importing data
 library(ggplot2)   # great for combining plots
 
 ```
@@ -452,6 +452,8 @@ p <- diabetes %>%
 ggplotly(p,tooltip = c("x","y"))
 
 ```
+
+
 # Summary and reflection
 
 Reproducibility means research data and code are made open and available to all levels of society so that others can reach the same results as are claimed in the scientific output. R is one of best choice when it comes to reproducibility as it free and open-source software along with some other like python. R has scope of writing code and its documentation all in one place with desired format of its output like pdf, word, HTML etc. One of the most powerful features of R is its ability to deal and visualize tabular data and statistical function to do statistical analysis.
