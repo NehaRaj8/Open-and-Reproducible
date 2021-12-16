@@ -371,7 +371,7 @@ admission_data %>%
   ggplot(aes(x=age, 
              y=Sugar_reading,
              color =sex))+
-  geom_point(alpha=2, size=2)+                   
+  geom_point(alpha=2, size=1.5)+                   
   geom_smooth(se = FALSE)
 
 ```
@@ -396,9 +396,30 @@ diabetes %>%
   ggplot(aes(x=age, 
              y=Sugar_reading,
              color =sex))+
-  geom_point(alpha=2, size=2)+                   
+  geom_point(alpha=2, size=1.5)+                   
   geom_smooth(se = FALSE)
 ```
+
+
+## using viridis colour scheme
+
+Colours use in scatter plot for males and females are red and green. Most common colour blindness is known as “red/green colour blindness”. Colouring the plot with red and green might make this useless for the people with colour blindness. Viridis colour scheme has been used to colour the scatter plot which provide a wide perceptual range and rely more on blue - yellow contrast.
+
+
+
+```{r different-colour}
+ diabetes %>%
+  ggplot(aes(x=age, 
+             y=Sugar_reading,
+             color =sex))+
+  geom_point()+
+  geom_smooth(se = FALSE)+
+   ggtitle("Diabetes-related hospital admissions") +  # add title
+  scale_color_viridis(discrete=TRUE)         # use the viridis colour scheme
+
+
+```
+
 ## Applying interactive tooltip
 
 R provides a fantastic graphical user interface called tooltip. When hovered over, it presents a brief informative message about that point. Tooltip has been applied by passing x axis and y axis values through tooltip in the ggplotly().
@@ -411,31 +432,13 @@ p <- diabetes %>%
              y=Sugar_reading,
              color =sex))+
   geom_point()+
-  geom_smooth(se = FALSE)
-
-ggplotly(p,tooltip = c("x","y"))
-
-```
-
-## using viridis colour scheme
-
-Colours use in scatter plot for males and females are red and green. Most common colour blindness is known as “red/green colour blindness”. Colouring the plot with red and green might make this useless for the people with colour blindness. Viridis colour scheme has been used to colour the scatter plot which provide a wide perceptual range and rely more on blue - yellow contrast.
-
-
-
-```{r different-colour}
-p <- diabetes %>%
-  ggplot(aes(x=age, 
-             y=Sugar_reading,
-             color =sex))+
-  geom_point()+
   geom_smooth(se = FALSE)+
    ggtitle("Diabetes-related hospital admissions") +  # add title
   scale_color_viridis(discrete=TRUE)         # use the viridis colour scheme
+
 ggplotly(p,tooltip = c("x","y"))
 
 ```
-
 # Summary and reflection
 
 Reproducibility means research data and code are made open and available to all levels of society so that others can reach the same results as are claimed in the scientific output. R is one of best choice when it comes to reproducibility as it free and open-source software along with some other like python. One of the most powerful features of R is its ability to deal and visualize tabular data with just few functions and statistical function to do statistical analysis.
@@ -445,6 +448,7 @@ Personally, the features that was very helpful was the combination of code chunk
 This report has not been created in one single stretch, hence every time the work was in progress a small snippet of information in form of text was added so that whenever the coding resumes, I will have clear picture where did I leave with what conditions and what was planned next in coding. This feature is not just helpful for reproducibility for other, It is also useful in keeping track of what has been done so far.
 
 While creating fake data set with csv file, fake chi numbers were created which are comparatively large number. In csv file these large numbers are converted into scientific or exponential numbers in the cell. This is how large numbers are displayed in csv and reflection of this can be seen in this report as well.
+
 
 ### References 
 
