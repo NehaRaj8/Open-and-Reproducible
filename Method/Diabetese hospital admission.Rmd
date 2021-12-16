@@ -14,25 +14,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction 
 
-Open science is the movement to make scientific research (including publications, data, physical samples, and software) and its dissemination accessible to all levels of society, amateur or professional Open science is transparent and accessible knowledge that is shared and developed through collaborative networks. It encompasses practices such as publishing open research, campaigning for open access, encouraging scientists to practice open-notebook science, and generally making it easier to publish and communicate scientific knowledge. [1] 
+*Open science* is the movement to make scientific research (including publications, data, physical samples, and software) and its dissemination accessible to all levels of society, amateur or professional Open science is transparent and accessible knowledge that is shared and developed through collaborative networks. It encompasses practices such as publishing open research, campaigning for open access, encouraging scientists to practice open-notebook science, and generally making it easier to publish and communicate scientific knowledge. [1] 
 
 
-Open science can have following benefits if applied to scientific research [2] 
+## Open science can have following benefits if applied to scientific research [2] 
 
-Efficiency of the research – Open science can dramatically improve effectiveness and productivity of the scientific research by reducing the duplication and cost of creating, transferring, and reusing data. It allows reusability of data for more research work and hence create new opportunity for global participation in the research process.
-
-
-Quality and integrity of the research – Openness of research assets like data, code and results provides an opportunity for evolution and scrutiny by scientific community which allows accurate replication and validation of the research result. Openness can also identify malpractice of science early on and will contribute to maintain science’s self-correction principle.
+*Efficiency of the research* – Open science can dramatically improve effectiveness and productivity of the scientific research by reducing the duplication and cost of creating, transferring, and reusing data. It allows reusability of data for more research work and hence create new opportunity for global participation in the research process.
 
 
-Economic benefits – Open science will foster innovation and scientific systems more broadly with increased awareness and conscious choices and hence benefit advanced economies and developing countries.
+*Quality and integrity of the research* – Openness of research assets like data, code and results provides an opportunity for evolution and scrutiny by scientific community which allows accurate replication and validation of the research result. Openness can also identify malpractice of science early on and will contribute to maintain science’s self-correction principle.
+
+
+*Economic benefits* – Open science will foster innovation and scientific systems more broadly with increased awareness and conscious choices and hence benefit advanced economies and developing countries.
 Innovation and knowledge transfer – Open science offers swift path from research to innovation to produce new products and services.
 
 
-Public disclosure and agreement – Open science involves public of the society which promotes awareness and trust of research results hance results in more public funded research.
+*Public disclosure and agreement* – Open science involves public of the society which promotes awareness and trust of research results hance results in more public funded research.
 
 
-Global benefits – Open science takes account of global issue like climate change or the ageing population and promotes collaborate effort and faster knowledge transfer
+*Global benefits* – Open science takes account of global issue like climate change or the ageing population and promotes collaborate effort and faster knowledge transfer
 
 
 In simple terms open science can amplify the power of science by adopting reproducibility factor of scientific research like keeping research data, code, and environment information open and accessible to all levels of society. 
@@ -64,7 +64,15 @@ YAML header is a short text which gives information of title, author, date and o
 
 R markdown provides syntax to create different levels of headers. For example, the word “introduction” of this report has been created as main heading by using single “#” before the text “introduction” and other levels of headings can be created by increasing the number of “#” in front of the text. For example 
 
+## heading 2 with “##” in front of text or phrase
 
+### heading 3 with “###” in front of text or phrase
+
+
+ Plain text can be written in *italics* by using “*” or “_” and keeping the text in between them and in **bold** by using “**” or “_ _” before and after the text. There are syntax for writing text in different styles for example  
+
+
+**bold** by using test between two asterisk symbol "**"
 
 superscripts ^2^ by using “^” 
 
@@ -86,8 +94,8 @@ Ordered list can be written as following by writing order like “1.” and sub 
 
 1. ordered list 
 2. item 2 
-      + sub-item 1
-      + sub-item 2
+      1. sub-item 
+      2. sub-item 
 
 Tables can also be created by using "-" to underline the table header and then use  "|" to separate table content on each side.
 
@@ -101,22 +109,22 @@ To create a blockquote, add a “> “in front of a paragraph. For example
 
    >  This is blockquote
 
-R markdown facilitate code chunk which is simply a display of code for illustration and its output. For example, below code chunk is for loading the different packages used in this report.The code chunk is used for detailed snippets of code and it is achieved by using three back ticks in start of the code and finish with 3 back ticks 
+R markdown facilitate code chunk which is simply a display of code for illustration and its output. For example, below code chunk is for loading the different packages used in this report.The code chunk is used for detailed snippets of code and it is achieved by using three back ticks in start of the code and finish with 3 back ticks (```) 
 
 
 Chunk output can be customised with arguments set within the curly bracket { } for example 
 
 
-include = FALSE prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.
+**include = FALSE** prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.
 
 
-echo = FALSE prevents code, but not the results from appearing in the finished file. This is a useful way to embed figures.
+**echo = FALSE** prevents code, but not the results from appearing in the finished file. This is a useful way to embed figures.
 
 
-message = FALSE prevents messages that are generated by code from appearing in the finished file.
+**message = FALSE** prevents messages that are generated by code from appearing in the finished file.
 
 
-warning = FALSE prevents warnings that are generated by code from appearing in the finished.
+**warning = FALSE** prevents warnings that are generated by code from appearing in the finished.
 
 
 R markdown also facilitates inline code by putting back ticks (') around part of the code line. In line code is usually for small command within the test of the report.
